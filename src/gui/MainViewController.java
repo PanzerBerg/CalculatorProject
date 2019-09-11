@@ -2,21 +2,23 @@ package gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import util.Alerts;
 
 public class MainViewController {
 
-    private Integer number1;
-    private Integer number2;
-    private Integer result;
+    private Integer number1 = 0;
+    private Integer number2 = 0;
+    private Integer result = null;
     private String text;
 
-    private boolean operationPressed;
-    private boolean plusPressed;
-    private boolean minusPressed;
-    private boolean multPressed;
-    private boolean divPressed;
+    private boolean operationPressed = false;
+    private boolean plusPressed = false;
+    private boolean minusPressed = false;
+    private boolean multPressed = false;
+    private boolean divPressed = false;
 
     @FXML
     private TextField textField;
@@ -62,6 +64,20 @@ public class MainViewController {
     private Button btErase;
 
     public void onBt1Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("1");
 
@@ -85,6 +101,20 @@ public class MainViewController {
     }
 
     public void onBt2Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("2");
 
@@ -108,6 +138,20 @@ public class MainViewController {
     }
 
     public void onBt3Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("3");
 
@@ -131,6 +175,20 @@ public class MainViewController {
     }
 
     public void onBt4Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("4");
 
@@ -154,6 +212,20 @@ public class MainViewController {
     }
 
     public void onBt5Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("5");
 
@@ -177,6 +249,20 @@ public class MainViewController {
     }
 
     public void onBt6Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("6");
 
@@ -201,6 +287,20 @@ public class MainViewController {
     }
 
     public void onBt7Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("7");
 
@@ -225,6 +325,20 @@ public class MainViewController {
     }
 
     public void onBt8Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("8");
 
@@ -249,6 +363,20 @@ public class MainViewController {
     }
 
     public void onBt9Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("9");
 
@@ -273,6 +401,20 @@ public class MainViewController {
     }
 
     public void onBt0Action(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            result = null;
+            number1 = 0;
+            number2 = 0;
+            operationPressed = false;
+            plusPressed = false;
+            minusPressed = false;
+            multPressed = false;
+            divPressed = false;
+        }
+
         if(textField.getText() == null){
             textField.setText("0");
 
@@ -308,13 +450,46 @@ public class MainViewController {
             textField.setText(null);
         } else {
             operationPressed = true;
+            plusPressed = true;
             textField.setText(null);
         }
     }
 
-//    public void onBtEqualAction(ActionEvent event) {
-//
-//    }
+    public void onBtEqualAction(ActionEvent event) {
+        if (result == null){
+            //
+        } else {
+            textField.setText(null);
+            if (plusPressed) {
+                result += result;
+                textField.setText((String.format("%d", result)));
+            } else if (minusPressed) {
+                result -= result;
+                textField.setText((String.format("%d", result)));
+            } else if (multPressed) {
+                result *= result;
+                textField.setText((String.format("%d", result)));
+            } else if (divPressed) {
+                result /= result;
+                textField.setText((String.format("%d", result)));
+            }
+        }
+
+        if (textField.getText() == null || textField.getText() == "" && number1 != 0){
+            number2 = 0;
+        }
+        if (operationPressed == false) {
+            Alerts.showAlert("Cannot complete", "No Operations pressed", "A operation must be pressed in order to finalize the complete. \nPlease press on either +, -, x or /", Alert.AlertType.WARNING);
+        }
+
+        if (plusPressed == true && result == null) {
+            textField.setText(null);
+            result = number1 + number2;
+            textField.setText((String.format("%d", result)));
+        }
+
+
+    }
 
 //    public void onBt1Action(ActionEvent event) {
 //
