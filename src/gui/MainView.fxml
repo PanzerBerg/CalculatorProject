@@ -126,7 +126,7 @@
                   <Font size="11.0" />
                </font>
             </Button>
-            <Button fx:id="btAC" mnemonicParsing="false" prefHeight="57.0" prefWidth="57.0" text="AC" GridPane.rowIndex="4">
+            <Button fx:id="btAC" mnemonicParsing="false" onAction="#onBtACAction" prefHeight="57.0" prefWidth="57.0" text="AC" GridPane.rowIndex="4">
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>

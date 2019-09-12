@@ -63,19 +63,26 @@ public class MainViewController {
     @FXML
     private Button btErase;
 
+    public void resetResults() {
+        textField.setText(null);
+        result = null;
+        number1 = 0;
+        number2 = 0;
+        operationPressed = false;
+        plusPressed = false;
+        minusPressed = false;
+        multPressed = false;
+        divPressed = false;
+
+    }
+
+    public void onBtACAction(ActionEvent event) {
+        resetResults();
+    }
+
     public void onBt1Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+            resetResults();
         }
 
         if(textField.getText() == null){
@@ -101,18 +108,8 @@ public class MainViewController {
     }
 
     public void onBt2Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+             resetResults();
         }
 
         if(textField.getText() == null){
@@ -138,18 +135,8 @@ public class MainViewController {
     }
 
     public void onBt3Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+             resetResults();
         }
 
         if(textField.getText() == null){
@@ -175,18 +162,8 @@ public class MainViewController {
     }
 
     public void onBt4Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+           resetResults();
         }
 
         if(textField.getText() == null){
@@ -212,18 +189,8 @@ public class MainViewController {
     }
 
     public void onBt5Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+           resetResults();
         }
 
         if(textField.getText() == null){
@@ -249,18 +216,8 @@ public class MainViewController {
     }
 
     public void onBt6Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+            resetResults();
         }
 
         if(textField.getText() == null){
@@ -287,18 +244,8 @@ public class MainViewController {
     }
 
     public void onBt7Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+            resetResults();
         }
 
         if(textField.getText() == null){
@@ -325,18 +272,8 @@ public class MainViewController {
     }
 
     public void onBt8Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+            resetResults();
         }
 
         if(textField.getText() == null){
@@ -363,18 +300,8 @@ public class MainViewController {
     }
 
     public void onBt9Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+            resetResults();
         }
 
         if(textField.getText() == null){
@@ -397,22 +324,11 @@ public class MainViewController {
                 number1 = Integer.parseInt(text);
             }
         }
-
     }
 
     public void onBt0Action(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
-            textField.setText(null);
-            result = null;
-            number1 = 0;
-            number2 = 0;
-            operationPressed = false;
-            plusPressed = false;
-            minusPressed = false;
-            multPressed = false;
-            divPressed = false;
+        if (result != null){
+            resetResults();
         }
 
         if(textField.getText() == null){
@@ -439,9 +355,6 @@ public class MainViewController {
     }
 
     public void onBtPlusAction(ActionEvent event) {
-        if (textField.getText() == null || textField.getText() == ""){
-            number1 = 0;
-        }
         if (plusPressed || minusPressed || multPressed || divPressed){
             plusPressed = true;
             minusPressed = false;
@@ -456,9 +369,7 @@ public class MainViewController {
     }
 
     public void onBtEqualAction(ActionEvent event) {
-        if (result == null){
-            //
-        } else {
+        if (result != null){
             textField.setText(null);
             if (plusPressed) {
                 result += result;
@@ -491,7 +402,4 @@ public class MainViewController {
 
     }
 
-//    public void onBt1Action(ActionEvent event) {
-//
-//    }
 }
