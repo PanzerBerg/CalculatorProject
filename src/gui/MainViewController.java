@@ -1,15 +1,11 @@
 package gui;
 
-import com.sun.javafx.binding.StringFormatter;
 import gui.entities.EqualActions;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import util.Alerts;
-
-import java.math.BigInteger;
 
 public class MainViewController {
 
@@ -71,11 +67,11 @@ public class MainViewController {
 
     }
 
-    public void onBtACAction(ActionEvent event) {
+    public void onBtACAction() {
         resetResults();
     }
 
-    public void onBt1Action(ActionEvent event) {
+    public void onBt1Action() {
         if (equalActions.getResult() != null){
             resetResults();
         }
@@ -91,7 +87,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt2Action(ActionEvent event) {
+    public void onBt2Action() {
         if (equalActions.getResult() != null){
              resetResults();
         }
@@ -107,7 +103,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt3Action(ActionEvent event) {
+    public void onBt3Action() {
         if (equalActions.getResult() != null){
              resetResults();
         }
@@ -123,7 +119,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt4Action(ActionEvent event) {
+    public void onBt4Action() {
         if (equalActions.getResult() != null){
            resetResults();
         }
@@ -139,7 +135,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt5Action(ActionEvent event) {
+    public void onBt5Action() {
         if (equalActions.getResult() != null){
            resetResults();
         }
@@ -156,7 +152,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt6Action(ActionEvent event) {
+    public void onBt6Action() {
         if (equalActions.getResult() != null){
             resetResults();
         }
@@ -172,7 +168,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt7Action(ActionEvent event) {
+    public void onBt7Action() {
         if (equalActions.getResult() != null){
             resetResults();
         }
@@ -188,7 +184,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt8Action(ActionEvent event) {
+    public void onBt8Action() {
         if (equalActions.getResult() != null){
             resetResults();
         }
@@ -204,7 +200,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt9Action(ActionEvent event) {
+    public void onBt9Action() {
         if (equalActions.getResult() != null){
             resetResults();
         }
@@ -220,7 +216,7 @@ public class MainViewController {
         }
     }
 
-    public void onBt0Action(ActionEvent event) {
+    public void onBt0Action() {
 
         if (equalActions.getResult() != null){
             resetResults();
@@ -237,7 +233,7 @@ public class MainViewController {
         }
     }
 
-    public void onBtPlusAction(ActionEvent event) {
+    public void onBtPlusAction() {
         if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
             equalActions.setPlusPressed(true);
             equalActions.setMinusPressed(false);
@@ -251,7 +247,7 @@ public class MainViewController {
         }
     }
 
-    public void onBtMultAction(ActionEvent event) {
+    public void onBtMultAction() {
         if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
             equalActions.setPlusPressed(false);
             equalActions.setMinusPressed(false);
@@ -265,7 +261,7 @@ public class MainViewController {
         }
     }
 
-    public void onBtDivAction(ActionEvent event) {
+    public void onBtDivAction() {
         if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
             equalActions.setPlusPressed(false);
             equalActions.setMinusPressed(false);
@@ -279,7 +275,7 @@ public class MainViewController {
         }
     }
 
-    public void onBtMinusAction(ActionEvent event) {
+    public void onBtMinusAction() {
         if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
             equalActions.setPlusPressed(false);
             equalActions.setMinusPressed(true);
@@ -293,12 +289,12 @@ public class MainViewController {
         }
     }
 
-    public void onBtEqualAction(ActionEvent event) {
+    public void onBtEqualAction() {
 
         equalActions.equalEqual(textField);
 
-        if (textField.getText() == null || textField.getText() == "" && equalActions.getNumber1() != 0) {
-            Alerts.showAlert("No imput detected", null, "Please input the second number", Alert.AlertType.WARNING);
+        if (textField.getText() == null || textField.getText().equals("") && equalActions.getNumber1() != 0) {
+            Alerts.showAlert("No input detected", null, "Please input the second number", Alert.AlertType.WARNING);
         }
 
         if (!equalActions.isOperationPressed()) {

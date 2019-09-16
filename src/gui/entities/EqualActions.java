@@ -2,8 +2,6 @@ package gui.entities;
 
 import javafx.scene.control.TextField;
 
-import javax.xml.soap.Text;
-
 public class EqualActions {
 
     private Long number1 = null;
@@ -18,18 +16,6 @@ public class EqualActions {
     private boolean divPressed = false;
 
     public EqualActions(){
-    }
-
-    public EqualActions(Long number1, Long number2, Long result, String text, boolean operationPressed, boolean plusPressed, boolean minusPressed, boolean multPressed, boolean divPressed) {
-        this.number1 = number1;
-        this.number2 = number2;
-        this.result = result;
-        this.text = text;
-        this.operationPressed = operationPressed;
-        this.plusPressed = plusPressed;
-        this.minusPressed = minusPressed;
-        this.multPressed = multPressed;
-        this.divPressed = divPressed;
     }
 
     public Long getNumber1() {
@@ -54,14 +40,6 @@ public class EqualActions {
 
     public void setResult(Long result) {
         this.result = result;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public boolean isOperationPressed() {
@@ -126,7 +104,7 @@ public class EqualActions {
         }
     }
 
-    public void checkSize (TextField textField){
+    private void checkSize(TextField textField){
         if (result > 999999999) {
             text = String.format("%d", result);
             int i;
@@ -181,7 +159,7 @@ public class EqualActions {
     }
 
     public void onBtAction(String number, TextField textField) {
-        if (textField.getText() == null || textField.getText() == "") {
+        if (textField.getText() == null || textField.getText().equals("")) {
             textField.setText(number);
 
             text = textField.getText();
