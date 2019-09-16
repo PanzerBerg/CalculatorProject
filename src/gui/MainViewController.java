@@ -64,7 +64,7 @@ public class MainViewController {
         equalActions.setMinusPressed(false);
         equalActions.setMultPressed(false);
         equalActions.setDivPressed(false);
-
+        equalActions.setModPressed(false);
     }
 
     public void onBtACAction() {
@@ -234,11 +234,12 @@ public class MainViewController {
     }
 
     public void onBtPlusAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
+        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
             equalActions.setPlusPressed(true);
             equalActions.setMinusPressed(false);
             equalActions.setMultPressed(false);
             equalActions.setDivPressed(false);
+            equalActions.setModPressed(false);
             textField.setText(null);
         } else {
             equalActions.setOperationPressed(true);
@@ -248,11 +249,12 @@ public class MainViewController {
     }
 
     public void onBtMultAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
+        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
             equalActions.setPlusPressed(false);
             equalActions.setMinusPressed(false);
             equalActions.setMultPressed(true);
             equalActions.setDivPressed(false);
+            equalActions.setModPressed(false);
             textField.setText(null);
         } else {
             equalActions.setOperationPressed(true);
@@ -262,11 +264,12 @@ public class MainViewController {
     }
 
     public void onBtDivAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
+        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
             equalActions.setPlusPressed(false);
             equalActions.setMinusPressed(false);
             equalActions.setMultPressed(false);
             equalActions.setDivPressed(true);
+            equalActions.setModPressed(false);
             textField.setText(null);
         } else {
             equalActions.setOperationPressed(true);
@@ -276,11 +279,12 @@ public class MainViewController {
     }
 
     public void onBtMinusAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
+        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
             equalActions.setPlusPressed(false);
             equalActions.setMinusPressed(true);
             equalActions.setMultPressed(false);
             equalActions.setDivPressed(false);
+            equalActions.setModPressed(false);
             textField.setText(null);
         } else {
             equalActions.setOperationPressed(true);
@@ -289,8 +293,27 @@ public class MainViewController {
         }
     }
 
+    public void onBtModAction() {
+        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
+            equalActions.setPlusPressed(false);
+            equalActions.setMinusPressed(false);
+            equalActions.setMultPressed(false);
+            equalActions.setDivPressed(false);
+            equalActions.setModPressed(true);
+            textField.setText(null);
+        } else {
+            equalActions.setOperationPressed(true);
+            equalActions.setModPressed(true);
+            textField.setText(null);
+        }
+    }
+
     public void onBtEraseAction() {
         equalActions.eraseAction(textField);
+    }
+
+    public void onBtPosNegAction() {
+        equalActions.onBtNegPos(textField);
     }
 
     public void onBtEqualAction() {

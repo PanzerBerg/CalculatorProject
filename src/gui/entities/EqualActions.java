@@ -14,6 +14,7 @@ public class EqualActions {
     private boolean minusPressed = false;
     private boolean multPressed = false;
     private boolean divPressed = false;
+    private boolean modPressed = false;
 
     public EqualActions(){
     }
@@ -82,6 +83,14 @@ public class EqualActions {
         this.divPressed = divPressed;
     }
 
+    public boolean isModPressed() {
+        return modPressed;
+    }
+
+    public void setModPressed(boolean modPressed) {
+        this.modPressed = modPressed;
+    }
+
     public void equalEqual(TextField textField) {
 
         if (result != null){
@@ -94,6 +103,8 @@ public class EqualActions {
                 result *= number2;
             } else if (divPressed) {
                 result /= number2;
+            } else if (modPressed) {
+                result %= number2;
             }
             setResult(result);
             checkSize(textField);
@@ -146,9 +157,14 @@ public class EqualActions {
         checkSize(textField);
 
         System.out.println(result);
-    }
+        } else if (modPressed && result == null) {
+            textField.setText(null);
+            result = number1 % number2;
 
-    setResult(result);
+            checkSize(textField);
+        }
+
+        setResult(result);
     }
 
     public void onBtAction(String number, TextField textField) {
@@ -186,6 +202,16 @@ public class EqualActions {
             setNumber2(Long.parseLong(textField.getText()));
         } else {
             setNumber1(Long.parseLong(textField.getText()));
+        }
+    }
+
+    public void onBtNegPos(TextField textField) {
+        if (operationPressed) {
+            number2 *= -1;
+            textField.setText(String.format("%d", number2));
+        } else {
+            number1 *= -1;
+            textField.setText(String.format("%d", number1));
         }
     }
 }
