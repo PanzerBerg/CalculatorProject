@@ -289,6 +289,10 @@ public class MainViewController {
         }
     }
 
+    public void onBtEraseAction() {
+        equalActions.eraseAction(textField);
+    }
+
     public void onBtEqualAction() {
 
         equalActions.equalEqual(textField);

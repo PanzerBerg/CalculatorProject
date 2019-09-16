@@ -88,16 +88,12 @@ public class EqualActions {
             textField.setText(null);
             if (plusPressed) {
                 result += number2;
-//                textField.setText((String.format("%d", result)));
             } else if (minusPressed) {
                 result -= number2;
-//                textField.setText((String.format("%d", result)));
             } else if (multPressed) {
                 result *= number2;
-//                textField.setText((String.format("%d", result)));
             } else if (divPressed) {
                 result /= number2;
-//                textField.setText((String.format("%d", result)));
             }
             setResult(result);
             checkSize(textField);
@@ -152,10 +148,7 @@ public class EqualActions {
         System.out.println(result);
     }
 
-
-
     setResult(result);
-
     }
 
     public void onBtAction(String number, TextField textField) {
@@ -183,6 +176,16 @@ public class EqualActions {
             } else {
                 setNumber1(Long.parseLong(textField.getText()));
             }
+        }
+    }
+
+    public void eraseAction(TextField textField) {
+        text = textField.getText();
+        textField.setText(text.substring(0, text.length()-1));
+        if (isOperationPressed()) {
+            setNumber2(Long.parseLong(textField.getText()));
+        } else {
+            setNumber1(Long.parseLong(textField.getText()));
         }
     }
 }

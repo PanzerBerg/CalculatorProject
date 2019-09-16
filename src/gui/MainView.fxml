@@ -173,7 +173,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </Button>
-            <Button fx:id="btErase" mnemonicParsing="false" prefHeight="57.0" prefWidth="57.0" text="&lt;-" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Button fx:id="btErase" mnemonicParsing="false" onAction="#onBtEraseAction" prefHeight="57.0" prefWidth="57.0" text="&lt;-" GridPane.columnIndex="6" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <TextField fx:id="textField" alignment="CENTER_RIGHT" editable="false" layoutX="43.0" layoutY="82.0" prefHeight="57.0" prefWidth="307.0">
