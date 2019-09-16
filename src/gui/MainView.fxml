@@ -178,7 +178,7 @@
       </GridPane>
       <TextField fx:id="textField" alignment="CENTER_RIGHT" editable="false" layoutX="43.0" layoutY="82.0" prefHeight="57.0" prefWidth="307.0">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial" size="24.0" />
          </font></TextField>
       <HBox layoutY="1.0" prefHeight="25.0" prefWidth="400.0">
          <children>
