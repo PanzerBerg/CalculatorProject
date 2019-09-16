@@ -109,16 +109,16 @@ public class EqualActions {
         if (result != null){
             textField.setText(null);
             if (plusPressed) {
-                result += result;
+                result += number2;
 //                textField.setText((String.format("%d", result)));
             } else if (minusPressed) {
-                result -= result;
+                result -= number2;
 //                textField.setText((String.format("%d", result)));
             } else if (multPressed) {
-                result *= result;
+                result *= number2;
 //                textField.setText((String.format("%d", result)));
             } else if (divPressed) {
-                result /= result;
+                result /= number2;
 //                textField.setText((String.format("%d", result)));
             }
             setResult(result);
@@ -158,10 +158,25 @@ public class EqualActions {
             checkSize(textField);
 
             System.out.println(result);
+        } else if (divPressed && result == null) {
+        textField.setText(null);
+        result = number1 / number2;
 
-        }
+        checkSize(textField);
 
-        setResult(result);
+        System.out.println(result);
+        } else if (minusPressed && result == null) {
+        textField.setText(null);
+        result = number1 - number2;
+
+        checkSize(textField);
+
+        System.out.println(result);
+    }
+
+
+
+    setResult(result);
 
     }
 

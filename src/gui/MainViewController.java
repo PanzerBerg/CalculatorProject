@@ -265,8 +265,35 @@ public class MainViewController {
         }
     }
 
-    public void onBtEqualAction(ActionEvent event) {
+    public void onBtDivAction(ActionEvent event) {
+        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
+            equalActions.setPlusPressed(false);
+            equalActions.setMinusPressed(false);
+            equalActions.setMultPressed(false);
+            equalActions.setDivPressed(true);
+            textField.setText(null);
+        } else {
+            equalActions.setOperationPressed(true);
+            equalActions.setDivPressed(true);
+            textField.setText(null);
+        }
+    }
 
+    public void onBtMinusAction(ActionEvent event) {
+        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed()){
+            equalActions.setPlusPressed(false);
+            equalActions.setMinusPressed(true);
+            equalActions.setMultPressed(false);
+            equalActions.setDivPressed(false);
+            textField.setText(null);
+        } else {
+            equalActions.setOperationPressed(true);
+            equalActions.setMinusPressed(true);
+            textField.setText(null);
+        }
+    }
+
+    public void onBtEqualAction(ActionEvent event) {
 
         equalActions.equalEqual(textField);
 
