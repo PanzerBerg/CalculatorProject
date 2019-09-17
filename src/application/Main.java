@@ -8,16 +8,18 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private static Scene mainScene;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/gui/MainView.fxml"));
         primaryStage.setTitle("Calculator");
         primaryStage.setResizable(false);
         primaryStage.sizeToScene();
-        primaryStage.setScene(new Scene(root, 400, 600));
+        mainScene = new Scene(root, 400, 600);
+        primaryStage.setScene(mainScene);
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

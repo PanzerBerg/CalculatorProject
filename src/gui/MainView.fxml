@@ -192,7 +192,8 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="Github Page" />
+                    <MenuItem mnemonicParsing="false" onAction="#onAboutAction" text="About" />
                   </items>
                 </Menu>
               </menus>
