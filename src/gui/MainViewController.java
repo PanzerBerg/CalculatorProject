@@ -2,21 +2,22 @@ package gui;
 
 import application.Main;
 import gui.entities.EqualActions;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import util.Alerts;
 
+import java.awt.*;
 import java.io.IOException;
-import java.util.function.Consumer;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class MainViewController {
 
@@ -91,11 +92,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("1", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -107,11 +104,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("2", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -123,11 +116,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("3", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -139,11 +128,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("4", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -152,15 +137,10 @@ public class MainViewController {
            resetResults();
         }
 
-
         try {
             equalActions.onBtAction("5", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -172,11 +152,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("6", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -188,11 +164,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("7", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -204,11 +176,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("8", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -220,11 +188,7 @@ public class MainViewController {
         try {
             equalActions.onBtAction("9", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
@@ -237,87 +201,34 @@ public class MainViewController {
         try {
             equalActions.onBtAction("0", textField);
         } catch (NumberFormatException e){
-            if (equalActions.isOperationPressed()) {
-                textField.setText(String.format("%d",equalActions.getNumber2()));
-            } else {
-                textField.setText(String.format("%d",equalActions.getNumber1()));
-            }
+            equalActions.onCatchButton(textField);
         }
     }
 
     public void onBtPlusAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
-            equalActions.setPlusPressed(true);
-            equalActions.setMinusPressed(false);
-            equalActions.setMultPressed(false);
-            equalActions.setDivPressed(false);
-            equalActions.setModPressed(false);
-            textField.setText(null);
-        } else {
-            equalActions.setOperationPressed(true);
-            equalActions.setPlusPressed(true);
-            textField.setText(null);
-        }
+        equalActions.operationPressed(textField);
+        equalActions.setPlusPressed(true);
     }
 
     public void onBtMultAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
-            equalActions.setPlusPressed(false);
-            equalActions.setMinusPressed(false);
-            equalActions.setMultPressed(true);
-            equalActions.setDivPressed(false);
-            equalActions.setModPressed(false);
-            textField.setText(null);
-        } else {
-            equalActions.setOperationPressed(true);
-            equalActions.setMultPressed(true);
-            textField.setText(null);
-        }
+        equalActions.operationPressed(textField);
+        equalActions.setMultPressed(true);
+
     }
 
     public void onBtDivAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
-            equalActions.setPlusPressed(false);
-            equalActions.setMinusPressed(false);
-            equalActions.setMultPressed(false);
-            equalActions.setDivPressed(true);
-            equalActions.setModPressed(false);
-            textField.setText(null);
-        } else {
-            equalActions.setOperationPressed(true);
-            equalActions.setDivPressed(true);
-            textField.setText(null);
-        }
+        equalActions.operationPressed(textField);
+        equalActions.setDivPressed(true);
     }
 
     public void onBtMinusAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
-            equalActions.setPlusPressed(false);
-            equalActions.setMinusPressed(true);
-            equalActions.setMultPressed(false);
-            equalActions.setDivPressed(false);
-            equalActions.setModPressed(false);
-            textField.setText(null);
-        } else {
-            equalActions.setOperationPressed(true);
-            equalActions.setMinusPressed(true);
-            textField.setText(null);
-        }
+        equalActions.operationPressed(textField);
+        equalActions.setMinusPressed(true);
     }
 
     public void onBtModAction() {
-        if (equalActions.isPlusPressed() || equalActions.isMinusPressed() || equalActions.isMultPressed() || equalActions.isDivPressed() || equalActions.isModPressed()){
-            equalActions.setPlusPressed(false);
-            equalActions.setMinusPressed(false);
-            equalActions.setMultPressed(false);
-            equalActions.setDivPressed(false);
-            equalActions.setModPressed(true);
-            textField.setText(null);
-        } else {
-            equalActions.setOperationPressed(true);
-            equalActions.setModPressed(true);
-            textField.setText(null);
-        }
+        equalActions.operationPressed(textField);
+        equalActions.setModPressed(true);
     }
 
     public void onBtEraseAction() {
@@ -359,5 +270,13 @@ public class MainViewController {
         }
     }
 
-
+    public void onGithubAction() {
+        try {
+            Desktop.getDesktop().browse(new URI("https://github.com/PanzerBerg/CalculatorProject"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+    }
 }

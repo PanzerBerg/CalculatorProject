@@ -214,4 +214,27 @@ public class EqualActions {
             textField.setText(String.format("%d", number1));
         }
     }
+
+    public void onCatchButton (TextField textField) {
+        if (operationPressed) {
+            textField.setText(String.format("%d", number2));
+        } else {
+            textField.setText(String.format("%d", number1));
+        }
+    }
+
+    public void operationPressed (TextField textField) {
+        if (isPlusPressed() || isMinusPressed() || isMultPressed() || isDivPressed() || isModPressed()){
+            setPlusPressed(false);
+            setMinusPressed(false);
+            setMultPressed(false);
+            setDivPressed(false);
+            setModPressed(false);
+            textField.setText(null);
+        } else {
+            setOperationPressed(true);
+            textField.setText(null);
+        }
+
+    }
 }
